@@ -3,7 +3,7 @@ let gridHeight, gridWidth, cellColor;
 
 
 // on submit, get grid sizes and call makeGrid()
-$('#sizePicker').submit(function(){
+$('#sizePicker').submit(function() {
   gridHeight = $('#input_height').val();
   gridWidth = $('#input_width').val();
   makeGrid(gridHeight,gridWidth);
@@ -30,7 +30,7 @@ function makeGrid() {
     colHtml += "<td></td>"
   }
 
-  $('tr').each(function(){
+  $('tr').each(function() {
     $(this).html(colHtml);
   });
 }
