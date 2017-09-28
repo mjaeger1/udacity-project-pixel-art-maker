@@ -1,13 +1,8 @@
-// Select color input
-// Select size input
 
-// When size is submitted by the user, call makeGrid()
+let gridHeight, gridWidth, cellColor;
 
-let gridHeight, gridWidth, gridColor;
 
-// NOTE TO MYSELF: non-jquery way
-// document.getElementsByTagName("form")[0].onsubmit = function() {... return false;}
-
+// on submit, get grid sizes and call makeGrid()
 $('#sizePicker').submit(function(){
   gridHeight = $('#input_height').val();
   gridWidth = $('#input_width').val();
@@ -16,15 +11,19 @@ $('#sizePicker').submit(function(){
 });
 
 
+//creates grid/table based on input
 function makeGrid() {
 
+  // deletes table (if any available already)
   $('tr').remove();
   $('td').remove();
 
+  // adds rows to table
   for (var i = 0; i < gridHeight; i++) {
     $('#pixel_canvas').append("<tr></tr>");
   }
 
+  // adds columns to table
   var colHtml = "";
 
   for (var j = 0; j < gridWidth; j++) {
@@ -35,3 +34,10 @@ function makeGrid() {
     $(this).html(colHtml);
   });
 }
+
+
+// listener to detect clicks on table cells; changing background-color
+$('#pixel_canvas').on('click', 'td', function() {
+    cellColor = $('#colorPicker').val();
+    $(this).css("background-color",cellColor);
+});
