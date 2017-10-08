@@ -1,4 +1,3 @@
-
 let gridHeight, gridWidth, cellColor;
 
 
@@ -7,7 +6,7 @@ $('#sizePicker').submit(function() {
   gridHeight = $('#input_height').val();
   gridWidth = $('#input_width').val();
   makeGrid(gridHeight,gridWidth);
-  return false; //needed to avoid form reset
+  return false; //needed to avoid form reset, alternatively: event.preventDefault()
 });
 
 
